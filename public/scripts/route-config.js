@@ -30,7 +30,7 @@
       .when('/add', {
         controller: 'RecipeDetailController',
         controllerAs: 'vm',
-        templateUrl: 'templates/recipe-detail-old.html'
+        templateUrl: 'templates/recipe-detail.html'
       })
       .otherwise({
         redirectTo: '/'

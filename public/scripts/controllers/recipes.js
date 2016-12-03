@@ -5,12 +5,17 @@
 	.controller('RecipesController', RecipesController);
 
 	// Controller
-	function RecipesController($scope, recipeService) {
+	function RecipesController($scope, $location, recipeService) {
 		
-		// Recipes
+		// Call service to get data
 		recipeService.getRecipes(function(response) {
 			$scope.recipes = response.data;
 		});
+
+		$scope.go = function(path) {
+			console.log(path);
+			$location.path(path);
+		}
 	}
 
 })();
