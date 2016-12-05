@@ -10,9 +10,13 @@
 		$scope.isEditing = false;
 
 		function startAdding(path) {
-			console.log('hellokk');
 			$location.path(path);
 		}
+
+		function startEditing(recipe) {
+			$scope.isEditing = true;
+		}
+
 		// Call service to get data
 		recipeService.getRecipes(function(response) {
 			$scope.recipes = response.data;
@@ -20,7 +24,7 @@
 
 		
 		$scope.startAdding = startAdding;
-		
+		$scope.startEditing = startEditing;
 	}
 
 })();

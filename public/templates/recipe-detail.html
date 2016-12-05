@@ -141,16 +141,13 @@
 
   <!-- TODO Add a directive to this div element so that it repeats
     for each recipe ingredient to display. -->
-  <div class="ingredient-row">
+  <div class="ingredient-row" ng-repeat="ingredient in recipe.ingredients">
     <div class="prefix-20 grid-30">
       <p>
         <!-- TODO Add directives to this select element to bind its value
           to the recipe ingredient model's `foodItem` property and to
           populate the list with the food items from the database. -->
-          <!-- {{recipes[0].ingredients[0].foodItem}} -->
-
-  
-        <select ng-model="recipe.foodItem" ng-options="recipe.foodItem for recipe in recipes[0].ingredients">
+        <select ng-model="ingredient.foodItem">
           <option value="">Select Item</option>
         </select>
       </p>
@@ -159,14 +156,14 @@
       <p>
         <!-- TODO Add a directive to this input element to bind its value
           to the recipe ingredient model's `condition` property. -->
-        <input type="text">
+        <input type="text" ng-model="ingredient.condition">
       </p>
     </div>
     <div class="grid-15">
       <p>
         <!-- TODO Add a directive to this input element to bind its value
           to the recipe ingredient model's `amount` property. -->
-        <input type="text">
+        <input type="text" ng-model="ingredient.property">
       </p>
     </div>
     <div class="grid-5 pad-top">
