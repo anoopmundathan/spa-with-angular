@@ -163,7 +163,7 @@
       <p>
         <!-- TODO Add a directive to this input element to bind its value
           to the recipe ingredient model's `amount` property. -->
-        <input type="text" ng-model="ingredient.property">
+        <input type="text" ng-model="ingredient.amount">
       </p>
     </div>
     <div class="grid-5 pad-top">
@@ -179,7 +179,7 @@
     <p>
       <!-- TODO Add a directive to this button in order to handle
         when the user clicks to add a new recipe ingredient. -->
-      <button>+ Add Another Ingredient</button>
+      <button ng-click="addAnotherIngredient()">+ Add Another Ingredient</button>
     </p>
   </div>
 
