@@ -9,8 +9,8 @@
     <div class="flush-right">
       <!-- TODO Add directives to both the "Save Recipe" and "Cancel"
         buttons in order to handle user clicks. -->
-      <button>Save Recipe</button>
-      <button class="secondary">Cancel</button>
+      <button ng-click="saveRecipe(recipe)">Save Recipe</button>
+      <button class="secondary" ng-click="cancelRecipe()">Cancel</button>
     </div>
   </div>
 </div>
@@ -147,8 +147,8 @@
         <!-- TODO Add directives to this select element to bind its value
           to the recipe ingredient model's `foodItem` property and to
           populate the list with the food items from the database. -->
-        <select ng-model="ingredient.foodItem">
-          <option value="">Select Item</option>
+        <select ng-model="selectedFoodItem" ng-options="ingredient.foodItem for ingredient in recipe.ingredients">
+          <option value="">{{ingredient.foodItem}}</option>
         </select>
       </p>
     </div>
@@ -200,12 +200,12 @@
 
   <!-- TODO Add a directive to this div element so that it repeats
     for each recipe step to display. -->
-  <div class="step-row">
+  <div class="step-row" ng-repeat="step in recipe.steps">
     <div class="prefix-20 grid-75">
       <p>
         <!-- TODO Add a directive to this input element to bind its value
           to the recipe step model's `description` property. -->
-        <input type="text">
+        <input type="text" ng-model="step.description">
       </p>
     </div>
     <div class="grid-5 pad-top">
