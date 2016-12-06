@@ -37,21 +37,14 @@
 
 		function addAnotherIngredient() {
 
-			// Get Index of currently being edited item
-			var index = $scope.recipes.findIndex(function(item) {
-				return item._id == $scope.id;
-			});
-
 			// Create new Ingredient
 			var newIngredient = {
-				condition: "condition",
-				amount: "10",
-				foodItem: "foodItem"
+				condition: "",
+				amount: "",
+				foodItem: ""
 			}
 
-			// $scope.recipes[index].ingredients.push(newIngredient);
 			$scope.recipe.ingredients.push(newIngredient);
-			console.log($scope.recipe);
 		}
 
 		$scope.cancelRecipe = cancelRecipe;
