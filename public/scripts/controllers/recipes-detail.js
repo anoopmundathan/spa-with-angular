@@ -27,7 +27,11 @@
 
 		// Save Recipe button click
 		function saveRecipe(recipe) {
+
+			// Call recipe service to save data to server
+			$scope.recipes.unshift(recipe);
 			console.log(recipe);
+			console.log($scope.recipes);
 		}
 
 		// Cancel Recipe button click
@@ -47,6 +51,7 @@
 			$scope.recipe.ingredients.push(newIngredient);
 		}
 
+		$scope.saveRecipe = saveRecipe;
 		$scope.cancelRecipe = cancelRecipe;
 		$scope.addAnotherIngredient = addAnotherIngredient;
 	}
