@@ -22,7 +22,6 @@
 			})[0];
 
 			$scope.recipe = editItem;
-			console.log($scope.recipe);
 		});
 
 		// Save Recipe button click
@@ -30,8 +29,6 @@
 
 			// Call recipe service to save data to server
 			$scope.recipes.unshift(recipe);
-			console.log(recipe);
-			console.log($scope.recipes);
 		}
 
 		// Cancel Recipe button click
