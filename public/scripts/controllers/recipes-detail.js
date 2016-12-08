@@ -17,6 +17,7 @@
 			$scope.id = $routeParams.id;
 			$scope.recipes = response.data;
 		
+			// Show Edited recipe
 			var editItem = response.data.filter(function(entry) {
 				return entry._id === $scope.id;
 			})[0];
@@ -48,9 +49,15 @@
 			$scope.recipe.ingredients.push(newIngredient);
 		}
 
+		// Delete selected recipe ingredient
+		function deleteIngredient(index) {
+			$scope.recipe.ingredients.splice(index, 1);
+		}
+
 		$scope.saveRecipe = saveRecipe;
 		$scope.cancelRecipe = cancelRecipe;
 		$scope.addAnotherIngredient = addAnotherIngredient;
+		$scope.deleteIngredient = deleteIngredient;
 	}
 
 })();
