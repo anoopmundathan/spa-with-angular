@@ -49,9 +49,19 @@
 			$scope.recipe.ingredients.push(newIngredient);
 		}
 
+
 		// Delete selected recipe ingredient
 		function deleteIngredient(index) {
 			$scope.recipe.ingredients.splice(index, 1);
+		}
+
+		// Add new step
+		function addAnotherStep() {
+			var newStep = {
+				description: "Enter new step"
+			}
+
+			$scope.recipe.steps.push(newStep);
 		}
 
 		//Delete Step
@@ -64,6 +74,7 @@
 		$scope.addAnotherIngredient = addAnotherIngredient;
 		$scope.deleteIngredient = deleteIngredient;
 		$scope.deleteStep = deleteStep;
+		$scope.addAnotherStep = addAnotherStep;
 	}
 
 })();
