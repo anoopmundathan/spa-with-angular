@@ -54,10 +54,16 @@
 			$scope.recipe.ingredients.splice(index, 1);
 		}
 
+		//Delete Step
+		function deleteStep(index) {
+			$scope.recipe.steps.splice(index, 1);
+		}
+
 		$scope.saveRecipe = saveRecipe;
 		$scope.cancelRecipe = cancelRecipe;
 		$scope.addAnotherIngredient = addAnotherIngredient;
 		$scope.deleteIngredient = deleteIngredient;
+		$scope.deleteStep = deleteStep;
 	}
 
 })();
