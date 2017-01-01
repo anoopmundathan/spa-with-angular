@@ -5,7 +5,7 @@
 	.controller('RecipesController', RecipesController);
 
 	// Controller
-	function RecipesController($scope, $location, recipeService) {
+	function RecipesController($scope, $location, $routeParams, dataService) {
 
 		$scope.isEditing = false;
 
@@ -25,9 +25,14 @@
 		}
 
 		// Call service to get data
-		recipeService.getRecipes(function(response) {
-			$scope.recipes = response.data;
-		});
+		// dataService.getRecipes(function(response) {
+		// 	$scope.recipes = response.data;
+		// });
+
+		dataService.list(function(response) {
+			$scope.recipes = response;
+			console.log(response);
+		})
 
 		
 		$scope.startAdding = startAdding;
