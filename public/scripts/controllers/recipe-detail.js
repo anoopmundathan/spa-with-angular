@@ -11,44 +11,6 @@
 		$scope.isAdding = false;
 		$scope.validationFailed = false;
 
-		// Call service to get data
-		// dataService.getRecipes(function(response) {
-			
-		// 	$scope.id = $routeParams.id;
-
-		// 	if ($scope.id) { // Edit Recipe Screen
-			
-		// 		$scope.recipes = response.data;	
-				
-		// 		// Show Edited recipe
-		// 		var editItem = response.data.filter(function(entry) {
-		// 			return entry._id === $scope.id;
-		// 		})[0];
-
-		// 		$scope.recipe = editItem;
-
-		// 		$scope.isEditing = true;
-		// 		$scope.isAdding = false;
-
-		// 	} else {
-
-		// 		$scope.isAdding = true;
-		// 		$scope.isEditing = false;
-
-		// 		$scope.recipe = {
-		// 			name: "",
-		// 			description: "",
-		// 			category: "",
-		// 			prepTime: "",
-		// 			cookTime: "",
-		// 			ingredients: [],
-		// 			steps: []
-		// 		}
-		// 	}
-		
-		// });
-
-
 		dataService.list($routeParams.id, function(response) {
 			$scope.recipe = response.data;
 		})
@@ -62,12 +24,6 @@
 			} else {
 				$scope.validationFailed = false;
 			}
-
-			// $scope.recipes.unshift(recipe);
-			// console.log('data is saved');
-
-			// // Need to call service to save the data
-			// $location.path('#/');
 		}
 
 		// Cancel Recipe button click
@@ -86,7 +42,6 @@
 
 			$scope.recipe.ingredients.push(newIngredient);
 		}
-
 
 		// Delete selected recipe ingredient
 		function deleteIngredient(index) {

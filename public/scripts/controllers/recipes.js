@@ -24,17 +24,10 @@
 			$scope.recipes.splice(index, 1);
 		}
 
-		// Call service to get data
-		// dataService.getRecipes(function(response) {
-		// 	$scope.recipes = response.data;
-		// });
-
 		dataService.list(function(response) {
 			$scope.recipes = response;
-			console.log(response);
 		})
 
-		
 		$scope.startAdding = startAdding;
 		$scope.startEditing = startEditing;
 		$scope.startDeleting = startDeleting;
