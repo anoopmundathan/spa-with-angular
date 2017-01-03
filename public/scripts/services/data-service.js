@@ -29,12 +29,4 @@
 		}
 	}
 
-	// function dataService($http) {
-
-	// 	this.getRecipes = function(callback) {
-	// 		$http.get('/api/recipes')
-	// 			.then(callback)
-	// 	}
-	// }
-
 })();

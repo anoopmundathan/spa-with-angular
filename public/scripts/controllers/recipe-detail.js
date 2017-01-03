@@ -11,9 +11,9 @@
 		$scope.isAdding = false;
 		$scope.validationFailed = false;
 
-		dataService.list($routeParams.id, function(response) {
-			$scope.recipe = response.data;
-		})
+		dataService.find($routeParams.id, function(response) {
+			$scope.recipe = response;
+		});
 
 		// Save Recipe button click
 		function saveRecipe(recipe) {
