@@ -28,6 +28,11 @@
 			$scope.recipes = response;
 		})
 
+		// GETs all of the categories
+		dataService.categories(function(response) {
+			$scope.categories = response;
+		});
+
 		$scope.startAdding = startAdding;
 		$scope.startEditing = startEditing;
 		$scope.startDeleting = startDeleting;
