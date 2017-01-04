@@ -24,6 +24,14 @@
 				}).success(callback);
 			},
 
+			add: function(recipe, callback) {
+				$http({
+					method: 'POST',
+					url: '/api/recipes/',
+					data: recipe
+				}).success(callback);
+			},
+
 			update: function(id, recipe, callback) {
 				$http({
 					method: 'PUT',

@@ -11,9 +11,19 @@
 		$scope.isAdding = false;
 		$scope.validationFailed = false;
 
-		dataService.find($routeParams.id, function(response) {
-			$scope.recipe = response;
-		});
+		if ($routeParams.id) {
+			$scope.isEditing = true;
+			$scope.isAdding = false;
+		} else {
+			$scope.isAdding = true;
+			$scope.isEditing = false;
+		}
+		
+		if ($scope.isEditing) {
+			dataService.find($routeParams.id, function(response) {
+				$scope.recipe = response;
+			});
+		}		
 
 		// Save Recipe button click
 		function saveRecipe(recipe) {
@@ -23,12 +33,20 @@
 				$scope.validationFailed = true;
 			} else {
 				$scope.validationFailed = false;
+			}
 
+			if ($scope.isEditing) {
 				dataService.update($scope.recipe._id, $scope.recipe, function() {
 					$location.path('#/');
 				});
 			}
 			
+			if ($scope.isAdding) {
+				console.log('isAdding');
+				dataService.add($scope.recipe, function() {
+					$location.path('#/');
+				});
+			}
 		}
 
 		// Cancel Recipe button click
