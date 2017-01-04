@@ -24,6 +24,14 @@
 				}).success(callback);
 			},
 
+			update: function(id, recipe, callback) {
+				$http({
+					method: 'PUT',
+					url: '/api/recipes/' + id,
+					data: recipe
+				}).success(callback);
+			},
+
 			categories: function(callback) {
 				$http({
 					method: 'GET',
@@ -31,6 +39,7 @@
 					cache: true
 				}).success(callback);
 			}
+
 		}
 	}
 

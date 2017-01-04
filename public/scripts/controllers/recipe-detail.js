@@ -24,6 +24,10 @@
 			} else {
 				$scope.validationFailed = false;
 			}
+
+			dataService.update($scope.recipe._id, $scope.recipe, function() {
+				$location.path('#/');
+			});
 		}
 
 		// Cancel Recipe button click
