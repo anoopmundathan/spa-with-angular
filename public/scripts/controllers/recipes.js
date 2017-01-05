@@ -21,7 +21,10 @@
 
 		// Delete Recipe
 		function startDeleting(recipe, index) {
-			$scope.recipes.splice(index, 1);
+			// $scope.recipes.splice(index, 1);
+			dataService.delete(recipe._id, function() {
+				$location.path('#/');
+			});
 		}
 
 		dataService.list(function(response) {

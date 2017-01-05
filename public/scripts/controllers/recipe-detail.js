@@ -20,8 +20,19 @@
 		}
 		
 		if ($scope.isEditing) {
+			
 			dataService.find($routeParams.id, function(response) {
 				$scope.recipe = response;
+				console.log($scope.recipe);
+			});
+
+			dataService.categories(function(response) {
+				$scope.categories = response;
+			});
+
+			dataService.fooditems(function(response) {
+				$scope.foodItems = response;
+				console.log($scope.foodItems);
 			});
 		}		
 

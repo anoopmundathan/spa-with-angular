@@ -40,10 +40,25 @@
 				}).success(callback);
 			},
 
+			delete: function(id, callback) {
+				$http({
+					method: 'DELETE',
+					url: '/api/recipes/' + id
+				}).success(callback);
+			},
+
 			categories: function(callback) {
 				$http({
 					method: 'GET',
 					url: '/api/categories/',
+					cache: true
+				}).success(callback);
+			},
+
+			fooditems: function(callback) {
+				$http({
+					method: 'GET',
+					url: '/api/fooditems/',
 					cache: true
 				}).success(callback);
 			}
