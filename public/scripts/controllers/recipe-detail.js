@@ -67,11 +67,10 @@
 
 		function addAnotherIngredient() {
 
-			// Create new Ingredient
 			var newIngredient = {
-				condition: "1",
-				amount: "2",
-				foodItem: "3"
+				condition: "condition",
+				amount: "Amount",
+				foodItem: "FoodItem"
 			}
 
 			$scope.recipe.ingredients.push(newIngredient);

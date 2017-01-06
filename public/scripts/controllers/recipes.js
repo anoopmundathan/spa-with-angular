@@ -7,16 +7,9 @@
 	// Controller
 	function RecipesController($scope, $location, $routeParams, dataService) {
 
-		$scope.isEditing = false;
-
 		// Add Recipe
-		function startAdding(path) {
+		function addRecipe(path) {
 			$location.path(path);
-		}
-
-		// Edit Recipe
-		function startEditing(recipe) {
-			$scope.isEditing = true;
 		}
 
 		// Delete Recipe
@@ -36,8 +29,7 @@
 			$scope.categories = response;
 		});
 
-		$scope.startAdding = startAdding;
-		$scope.startEditing = startEditing;
+		$scope.addRecipe = addRecipe;
 		$scope.startDeleting = startDeleting;
 	}
 
