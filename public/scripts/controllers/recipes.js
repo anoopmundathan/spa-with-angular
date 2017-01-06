@@ -5,7 +5,17 @@
 	.controller('RecipesController', RecipesController);
 
 	// Controller
-	function RecipesController($scope, $location, $routeParams, dataService) {
+	function RecipesController($scope, $location, dataService) {
+
+		// Displays a list of recipes
+		dataService.list(function(response) {
+			$scope.recipes = response;
+		});
+
+		// GETs all of the categories
+		dataService.categories(function(response) {
+			$scope.categories = response;
+		});
 
 		// Add Recipe
 		function addRecipe(path) {
@@ -13,24 +23,15 @@
 		}
 
 		// Delete Recipe
-		function startDeleting(recipe, index) {
-			// $scope.recipes.splice(index, 1);
+		function deleteRecipe(recipe, index) {
 			dataService.delete(recipe._id, function() {
-				$location.path('#/');
+				$scope.recipes.splice(index, 1);	
 			});
 		}
 
-		dataService.list(function(response) {
-			$scope.recipes = response;
-		})
-
-		// GETs all of the categories
-		dataService.categories(function(response) {
-			$scope.categories = response;
-		});
-
+		// Revealing pattern, expose methods
 		$scope.addRecipe = addRecipe;
-		$scope.startDeleting = startDeleting;
+		$scope.deleteRecipe = deleteRecipe;
 	}
 
 })();
