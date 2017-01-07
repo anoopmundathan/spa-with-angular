@@ -9,6 +9,7 @@
 	
 		$scope.recipe = {};
 		$scope.recipe.ingredients = [];
+		$scope.recipe.steps = [];
 
 		$scope.isEditing = false;
 		$scope.isAdding = false;
@@ -114,7 +115,7 @@
 				amount: "Amount",
 				foodItem: "FoodItem"
 			}
-			
+
 			$scope.recipe.ingredients.push(newIngredient);
 		}
 
