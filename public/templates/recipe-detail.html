@@ -24,8 +24,9 @@
     <ul class="validation-errors">
       <!-- TODO Add a directive to this li element so that it repeats
         for each validation message that there is to display -->
-      <li>
+      <li ng-repeat="message in errorMessages">
         <!-- TODO Add a binding expression to display the validation user message. -->
+        {{message}}
       </li>
     </ul>
   </div>
@@ -42,7 +43,7 @@
     <p>
       <!-- TODO Add a directive to this input element to bind its value
         to the recipe model's `name` property. -->
-      <input type="text" ng-model="recipe.name">
+      <input type="text" ng-model="recipe.name" ng-init="recipe.name=''">
     </p>
   </div>
 </div>
@@ -58,7 +59,7 @@
     <p>
       <!-- TODO Add a directive to this textarea element to bind its content
         to the recipe model's `description` property. -->
-      <textarea ng-model="recipe.description"></textarea>
+      <textarea ng-model="recipe.description" ng-init="recipe.description=''"></textarea>
     </p>
   </div>
 </div>
@@ -77,8 +78,8 @@
         with the categories from the database. -->
       <select ng-model="recipe.category" ng-options="category.name as category.name for category in categories">
         <option value="{{recipe.category}}">{{recipe.category}}</option>
+       
       </select>
-
     </p>
   </div>
 </div>

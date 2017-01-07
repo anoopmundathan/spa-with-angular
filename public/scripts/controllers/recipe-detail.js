@@ -18,45 +18,83 @@
 			$scope.isAdding = true;
 			$scope.isEditing = false;
 		}
-		
+
+		dataService.categories(function(response) {
+			$scope.categories = response;
+		});
+	
 		if ($scope.isEditing) {
 			
 			dataService.find($routeParams.id, function(response) {
 				$scope.recipe = response;
-				console.log($scope.recipe);
-			});
-
-			dataService.categories(function(response) {
-				$scope.categories = response;
 			});
 
 			dataService.fooditems(function(response) {
 				$scope.foodItems = response;
-				console.log($scope.foodItems);
 			});
 		}		
 
 		// Save Recipe button click
 		function saveRecipe(recipe) {
 
+			$scope.errorMessages = [];
+
 			// Validate each fields before saving recipe
-			if ($scope.recipe.name === "") {
+			if (validateFields()) {
 				$scope.validationFailed = true;
 			} else {
 				$scope.validationFailed = false;
 			}
-
-			if ($scope.isEditing) {
-				dataService.update($scope.recipe._id, $scope.recipe, function() {
-					$location.path('#/');
-				});
-			}
 			
-			if ($scope.isAdding) {
-				console.log('isAdding');
-				dataService.add($scope.recipe, function() {
-					$location.path('#/');
-				});
+			if (!$scope.validationFailed) {
+
+				if ($scope.isEditing) {
+					dataService.update($scope.recipe._id, $scope.recipe, function() {
+						$location.path('#/');
+					});
+				}
+			
+				if ($scope.isAdding) {
+					console.log('isAdding');
+					dataService.add($scope.recipe, function() {
+						$location.path('#/');
+					});					
+				}
+			} // validationFailed
+			
+		} // saveRecipe
+
+		// Validate all fields before save
+		function validateFields() {
+			// Check Name
+			if ($scope.recipe.name === "") {
+				$scope.errorMessages.push('Name is not entered');
+			}
+
+			// Check Description
+			if ($scope.recipe.description === "") {
+				$scope.errorMessages.push('Description is not entered');
+			}
+
+			// Check category
+			if ($scope.recipe.category === undefined) {
+				$scope.errorMessages.push('Category is not entered');
+			}
+
+			// Check Prep Time
+			if ($scope.recipe.prepTime === undefined) {
+				$scope.errorMessages.push('Prep Time is not entered');
+			}
+
+			// Check Cook Time 
+			if ($scope.recipe.cookTime === undefined) {
+				$scope.errorMessages.push('Cook Time is not entered');
+			}
+
+			if ($scope.errorMessages.length > 0) {
+				return true;
+			} else {
+				return false;
 			}
 		}
 
