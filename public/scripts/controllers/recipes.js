@@ -10,6 +10,7 @@
 		// Displays a list of recipes
 		dataService.list(function(response) {
 			$scope.recipes = response;
+			console.log($scope.recipes);
 		});
 
 		// GETs all of the categories

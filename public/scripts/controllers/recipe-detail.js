@@ -7,6 +7,9 @@
 	// Controller
 	function RecipeDetailController($scope, $routeParams, $location, dataService) {
 	
+		$scope.recipe = {};
+		$scope.recipe.ingredients = [];
+
 		$scope.isEditing = false;
 		$scope.isAdding = false;
 		$scope.validationFailed = false;
@@ -22,15 +25,16 @@
 		dataService.categories(function(response) {
 			$scope.categories = response;
 		});
-	
+
+		dataService.fooditems(function(response) {
+			$scope.foodItems = response;
+		});
+
+
 		if ($scope.isEditing) {
 			
 			dataService.find($routeParams.id, function(response) {
 				$scope.recipe = response;
-			});
-
-			dataService.fooditems(function(response) {
-				$scope.foodItems = response;
 			});
 		}		
 
@@ -55,7 +59,7 @@
 				}
 			
 				if ($scope.isAdding) {
-					console.log('isAdding');
+					console.log($scope.recipe);
 					dataService.add($scope.recipe, function() {
 						$location.path('#/');
 					});					
@@ -110,7 +114,7 @@
 				amount: "Amount",
 				foodItem: "FoodItem"
 			}
-
+			
 			$scope.recipe.ingredients.push(newIngredient);
 		}
 
