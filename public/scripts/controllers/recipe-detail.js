@@ -96,6 +96,16 @@
 				$scope.errorMessages.push('Cook Time is not entered');
 			}
 
+			// Check Ingredients
+			if ($scope.recipe.ingredients.length < 1) {
+				$scope.errorMessages.push('Ingredients are not added');
+			}
+
+			// Check Steps
+			if ($scope.recipe.steps.length < 1) {
+				$scope.errorMessages.push('Steps are not added');
+			} 
+
 			if ($scope.errorMessages.length > 0) {
 				return true;
 			} else {
