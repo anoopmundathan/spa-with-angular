@@ -21,6 +21,7 @@
 		} else {
 			$scope.isAdding = true;
 			$scope.isEditing = false;
+			$scope.title = "Add Recipe"
 		}
 
 		dataService.categories(function(response) {
