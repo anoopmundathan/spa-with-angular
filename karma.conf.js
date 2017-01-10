@@ -15,9 +15,15 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        'public/scripts/services/data-service.spec.js'
+        'node_modules/angular/angular.js',
+        'node_modules/angular-route/angular-route.js',
+        'node_modules/angular-mocks/angular-mocks.js',
+        'public/scripts/app.js',
+        'public/scripts/services/data-service.js',
+        'public/scripts/services/data-service.spec.js',
+        'public/scripts/controllers/recipes.js',
+        'public/scripts/controllers/recipes.spec.js'
     ],
-
 
     // list of files to exclude
     exclude: [
