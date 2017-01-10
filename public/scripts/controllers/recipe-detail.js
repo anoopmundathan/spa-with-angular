@@ -5,7 +5,7 @@
 	.controller('RecipeDetailController', RecipeDetailController);
 
 	// Controller
-	function RecipeDetailController($scope, $routeParams, $location, dataService) {
+	function RecipeDetailController($scope, $routeParams, $location, $window, dataService) {
 	
 		$scope.recipe = {};
 		$scope.recipe.ingredients = [];
@@ -56,14 +56,18 @@
 
 				if ($scope.isEditing) {
 					dataService.update($scope.recipe._id, $scope.recipe, function() {
-						$location.path('#/');
+						// $location.path('#/');
+						$window.location.href = "#/";
+						$window.location.reload();
 					});
 				}
 			
 				if ($scope.isAdding) {
 					console.log($scope.recipe);
 					dataService.add($scope.recipe, function() {
-						$location.path('#/');
+						// $location.path('#/');
+						$window.location.href = "#/";
+						$window.location.reload();
 					});					
 				}
 			} // validationFailed
