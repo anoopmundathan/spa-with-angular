@@ -4,7 +4,7 @@
 	.module('app')
 	.controller('RecipeDetailController', RecipeDetailController);
 
-	// Controller
+	// Recipe Detail Controller
 	function RecipeDetailController($scope, $routeParams, $location, $window, dataService) {
 	
 		$scope.recipe = {};

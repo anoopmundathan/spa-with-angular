@@ -4,7 +4,7 @@
 	.module('app')
 	.controller('RecipesController', RecipesController);
 
-	// Controller
+	// Recipe Controller
 	function RecipesController($scope, $location, dataService) {
 
 		// Displays a list of recipes
