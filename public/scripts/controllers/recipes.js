@@ -9,12 +9,12 @@
 
 		// Displays a list of recipes
 		dataService.list(function(response) {
-			$scope.recipes = response;
+			$scope.recipes = response.data;
 		});
 
 		// GETs all of the categories
 		dataService.categories(function(response) {
-			$scope.categories = response;
+			$scope.categories = response.data;
 		});
 
 		// Add Recipe

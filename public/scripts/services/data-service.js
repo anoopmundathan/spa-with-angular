@@ -13,7 +13,7 @@
 					method: 'GET', 
 					url: '/api/recipes',
 					cache: true
-				}).success(callback);
+				}).then(callback);
 			},
 
 			find: function(id, callback) {
@@ -21,7 +21,7 @@
 					method: 'GET',
 					url: '/api/recipes/' + id,
 					cache: true
-				}).success(callback);
+				}).then(callback);
 			},
 
 			add: function(recipe, callback) {
@@ -29,7 +29,7 @@
 					method: 'POST',
 					url: '/api/recipes/',
 					data: recipe
-				}).success(callback);
+				}).then(callback);
 			},
 
 			update: function(id, recipe, callback) {
@@ -37,14 +37,14 @@
 					method: 'PUT',
 					url: '/api/recipes/' + id,
 					data: recipe
-				}).success(callback);
+				}).then(callback);
 			},
 
 			delete: function(id, callback) {
 				$http({
 					method: 'DELETE',
 					url: '/api/recipes/' + id
-				}).success(callback);
+				}).then(callback);
 			},
 
 			categories: function(callback) {
@@ -52,7 +52,7 @@
 					method: 'GET',
 					url: '/api/categories/',
 					cache: true
-				}).success(callback);
+				}).then(callback);
 			},
 
 			fooditems: function(callback) {
@@ -60,7 +60,7 @@
 					method: 'GET',
 					url: '/api/fooditems/',
 					cache: true
-				}).success(callback);
+				}).then(callback);
 			}
 
 		}
