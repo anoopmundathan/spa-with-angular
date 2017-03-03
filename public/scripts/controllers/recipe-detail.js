@@ -25,18 +25,18 @@
 		}
 
 		dataService.categories(function(response) {
-			$scope.categories = response;
+			$scope.categories = response.data;
 		});
 
 		dataService.fooditems(function(response) {
-			$scope.foodItems = response;
+			$scope.foodItems = response.data;
 		});
 
 
 		if ($scope.isEditing) {
 			
 			dataService.find($routeParams.id, function(response) {
-				$scope.recipe = response;
+				$scope.recipe = response.data;
 			});
 		}		
 
